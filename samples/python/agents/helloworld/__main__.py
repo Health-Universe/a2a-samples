@@ -84,4 +84,4 @@ if __name__ == '__main__':
         allow_headers=["*"],
     )
 
-    uvicorn.run(app, host='0.0.0.0', port=9999)
+    uvicorn.run(app, host='0.0.0.0', port=8501)
