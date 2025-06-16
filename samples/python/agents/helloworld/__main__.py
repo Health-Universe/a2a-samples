@@ -74,4 +74,13 @@ if __name__ == '__main__':
         extended_agent_card=specific_extended_agent_card,
     )
 
-    uvicorn.run(server.build(), host='0.0.0.0', port=9999)
+    app = server.build()
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost", "http://127.0.0.1"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    uvicorn.run(app, host='0.0.0.0', port=9999)
